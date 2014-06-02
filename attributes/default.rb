@@ -1,0 +1,1 @@
+default[:puma_service][:apps] = {}
