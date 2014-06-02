@@ -57,7 +57,6 @@ Usage
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
 e.g.
 1. Fork the repository on Github
@@ -69,4 +68,4 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Authors: Case Taintor
