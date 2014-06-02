@@ -3,12 +3,14 @@
 # Recipe:: default
 #
 
-pacakge 'redhat-lsb' do
-  action :install
+if platform_family?("rhel")
+  package "redhat-lsb" do
+    action :install
+  end
 end
 
-cookbook_file "/etc/init.d/puma" do
-  source "puma"
+template "/etc/init.d/puma" do
+  source "puma.erb"
   mode 0755
   owner "root"
   group "root"
@@ -32,7 +34,7 @@ template "/etc/puma.conf" do
 end
 
 service "puma" do
-  init_command '/etc/init.d/puma'
+  init_command "/etc/init.d/puma"
   supports :start => true, :stop => true, :restart => true, :status => true
   action :enable
 end
