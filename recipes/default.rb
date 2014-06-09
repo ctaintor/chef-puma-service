@@ -9,8 +9,8 @@ if platform_family?("rhel")
   end
 end
 
-template "/etc/init.d/puma" do
-  source "puma.erb"
+cookbook_file "/etc/init.d/puma" do
+  source "puma"
   mode 0755
   owner "root"
   group "root"
