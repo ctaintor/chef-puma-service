@@ -4,8 +4,8 @@ This cookbook will install Puma as a system service using the init scripts provi
 
 Requirements
 ------------
-This cookbook has only been tested on CentOS 6.5. Puma also ships with upstart scripts - if you would
-like this support, please submit a pull request.
+This cookbook has only been tested on CentOS 6.5 and will probably only work on RHEL machines. If you're interested
+in adding support for other OSes, fork it and send a pull request
 
 Attributes
 ----------
@@ -23,6 +23,12 @@ Attributes
     <td>a hash containing configuration settings for each puma on the system</td>
     <td><p style="font-family:'Lucida Console', monospace">{}</p></td>
   </tr>
+  <tr>
+      <td><p style="font-family:'Lucida Console', monospace">['puma_service']['env_hash']</p></td>
+      <td>Hash</td>
+      <td>a hash containing environment variables and their values. These will be set for all runs of puma or puma-ctl</td>
+      <td><p style="font-family:'Lucida Console', monospace">{}</p></td>
+    </tr>
 </table>
 
 Usage

@@ -1,0 +1,7 @@
+#!/bin/bash
+<%- @env.each do |key, value| %>
+export <%= key %>='<%= value %>'
+<%- end %>
+app=$1
+shift
+cd $app && exec bundle exec pumactl $*

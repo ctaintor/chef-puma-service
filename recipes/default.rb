@@ -16,11 +16,24 @@ cookbook_file "/etc/init.d/puma" do
   group "root"
 end
 
-cookbook_file "/usr/local/bin/run-puma" do
-  source "run-puma"
+template "/usr/local/bin/run-puma" do
+  source "run-puma.erb"
   mode 0755
   owner "root"
   group "root"
+  variables({
+              :env => node[:puma_service][:env_hash]
+            })
+end
+
+template "/usr/local/bin/run-pumactl" do
+  source "run-pumactl.erb"
+  mode 0755
+  owner "root"
+  group "root"
+  variables({
+              :env => node[:puma_service][:env_hash]
+            })
 end
 
 template "/etc/puma.conf" do
