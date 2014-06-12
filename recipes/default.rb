@@ -46,6 +46,16 @@ template "/etc/puma.conf" do
             })
 end
 
+node[:puma_service][:apps].each do |app, config|
+  [config['app_path'], "#{config['app_path']}/tmp", "#{config['app_path']}/tmp/puma"].each do |dir|
+    directory dir do
+      owner config['user']
+      group config['user']
+      mode 00755
+    end
+  end
+end
+
 service "puma" do
   init_command "/etc/init.d/puma"
   supports :start => true, :stop => true, :restart => true, :status => true
