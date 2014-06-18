@@ -47,7 +47,7 @@ template "/etc/puma.conf" do
 end
 
 node[:puma_service][:apps].each do |app, config|
-  [config['app_path'], "#{config['app_path']}/tmp", "#{config['app_path']}/tmp/puma"].each do |dir|
+  [config['app_path'], "#{config['app_path']}/shared/tmp", "#{config['app_path']}/shared/tmp/puma"].each do |dir|
     directory dir do
       owner config['user']
       group config['user']
