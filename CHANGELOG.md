@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of puma_service.
 
+## 0.2.1:
+
+* Adds BUNDLE_GEMFILE environment setting to run-puma.erb. The absence of this led to endless failed attempts
+  at phased-restart 
+
 ## 0.1.0:
 
 * Initial release of puma_service
